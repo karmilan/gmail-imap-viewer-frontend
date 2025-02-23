@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# Gmail IMAP Viewer Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is the frontend component of a full-stack application designed to display Gmail emails using the IMAP protocol. The frontend is built using React.js and styled with Tailwind CSS. It allows users to authenticate with their Gmail account, retrieve and display emails, and navigate through them with ease.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Authentication**: Users can authenticate via OAuth2 for Gmail.
+- **Email Display**: Emails are displayed in a responsive and styled format using Tailwind CSS.
+- **Pagination/Search**: Users can navigate through emails and search for specific ones.
+- **Error Handling**: User-friendly messages for errors such as connection issues or invalid credentials.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+- **React.js**: A JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/karmilan/gmail-imap-viewer-frontend.git
+cd gmail-imap-viewer-frontend
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+npm install
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### Running the Application
+
+1. Start the development server:
+
+```bash
+npm run dev
+```
+
+2. Open your browser and navigate to `http://localhost:5173` to view the application.
+
+## Project Structure
+
+```
+/src
+  /components
+  - Auth.js
+  - EmailList.js
+  - EmailItem.js
+  /pages
+  - Home.js
+  - Login.js
+  /services
+  - api.js
+  - App.js
+  - index.js
+  - tailwind.config.js
 ```
