@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Layout from "./layouts/layout";
+import Login from "./pages/Login";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div className="text-5xl bg-red-400 text-yellow-700">hello world</div>
+      <Routes>
+        {/* <Login /> */}
+        <Route path="/login" element={<Login />} />
+        {/* Protected Routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="*" element={<Layout />} />
+        </Route>
+      </Routes>
     </>
   );
 }
